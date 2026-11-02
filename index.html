@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1080, height=1920">
+  <title>New Video Project</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body, html {
+      width: 100%; height: 100%; overflow: hidden; background: #07090e;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #ffffff;
+    }
+    #root {
+      width: 100%; height: 100%; position: relative; overflow: hidden;
+      background: radial-gradient(circle at 50% 30%, #111827 0%, #07090e 100%);
+    }
+    .clip {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      pointer-events: none;
+    }
+
+    /* Starter Title Card */
+    .title-wrapper {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 80px; z-index: 10;
+    }
+    .badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 20px; border-radius: 9999px;
+      background: rgba(34, 211, 238, 0.1); border: 1px solid rgba(34, 211, 238, 0.3);
+      color: #22d3ee; font-size: 20px; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; margin-bottom: 24px;
+    }
+    .badge-dot {
+      width: 8px; height: 8px; border-radius: 50%; background: #22d3ee;
+      box-shadow: 0 0 10px #22d3ee;
+    }
+    .title-text {
+      display: block;
+      font-size: 72px; font-weight: 900; line-height: 1.15;
+      background: linear-gradient(135deg, #ffffff 30%, #94a3b8 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      margin-bottom: 20px; letter-spacing: -1px;
+    }
+    .subtitle-text {
+      display: block;
+      font-size: 28px; font-weight: 500; color: #94a3b8; max-width: 760px; line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <!-- Root Composition (5.0s template, 1080x1920 30fps) -->
+  <div id="root" data-composition-id="main" data-duration="5.0" data-width="1080" data-height="1920" data-fps="30" data-layout-allow-overlap="true" data-layout-allow-occlusion="true">
+
+    <!-- Starter Title Card Scene -->
+    <p id="title-card" class="clip title-wrapper" data-start="0" data-duration="5.0" data-layout-allow-overlap="true" data-layout-allow-occlusion="true">
+      <span class="badge">
+        <span class="badge-dot"></span>
+        <span>HyperFrames Canvas</span>
+      </span>
+      <span class="title-text">New Video Project</span>
+      <span class="subtitle-text">Ready for your prompt, footage, captions, or animations.</span>
+    </p>
+
+  </div>
+
+  <script>
+    // Initialize paused HyperFrames Root Timeline
+    window.__timelines = window.__timelines || {};
+    const rootTl = gsap.timeline({ paused: true });
+    window.__timelines["main"] = rootTl;
+
+    // Smooth Entrance Animation
+    rootTl.fromTo("#title-card",
+      { opacity: 0, scale: 0.96, y: 20 },
+      { opacity: 1, scale: 1.0, y: 0, duration: 0.8, ease: "power2.out" },
+      0.2
+    );
+  </script>
+</body>
+</html>

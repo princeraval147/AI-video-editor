@@ -1,0 +1,37 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Leftovers / Old directories
+client/
+server/
+hyperframes/
+studio/
+RAW_CLIPs/
+
+# HyperFrames Cache & Internal Directories
+.hyperframes/
+.transcode-cache/
+.waveform-cache/
+.thumbnails/
+.scratch/
+.media/
+
+# Builds & Renders
+dist/
+renders/
+snapshots/
+*.mp4
+*.MOV
+*.mov
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# System Files
+.DS_Store
+Thumbs.db
+
